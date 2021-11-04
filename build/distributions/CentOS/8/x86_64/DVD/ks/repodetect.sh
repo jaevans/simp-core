@@ -58,7 +58,7 @@ fi
 if [ "$distro" == RedHat ]; then
 
   case $version in
-    '8' )
+    8 | 8.* )
       cat << EOF > /tmp/repo-include
 repo --name="AppStream" --baseurl="$uri_header/AppStream" --noverifyssl
 repo --name="BaseOS" --baseurl="$uri_header/BaseOS" --noverifyssl
@@ -66,7 +66,7 @@ repo --name="Updates" --baseurl="$uri_header/Updates" --noverifyssl
 repo --name="$local_name" --baseurl="$local_header" --noverifyssl
 EOF
     ;;
-    '7' )
+    7 | 7.* )
       cat << EOF > /tmp/repo-include
 repo --name="HighAvailability" --baseurl="$uri_header/addons/HighAvailability"
 repo --name="ResilientStorage" --baseurl="$uri_header/addons/ResilientStorage"
@@ -74,7 +74,7 @@ repo --name="Base" --baseurl="$uri_header"
 repo --name="$local_name" --baseurl="$local_header"
 EOF
     ;;
-    '6' )
+    6 | 6.* )
       cat << EOF > /tmp/repo-include
 repo --name="HighAvailability" --baseurl="$uri_header/HighAvailability" --noverifyssl
 repo --name="LoadBalancer" --baseurl="$uri_header/LoadBalancer" --noverifyssl
@@ -89,7 +89,7 @@ EOF
 elif [ "$distro" == CentOS ]; then
 
   case $version in
-    '8' )
+    8 | 8.* )
       cat << EOF > /tmp/repo-include
 repo --name="AppStream" --baseurl="$uri_header/AppStream" --noverifyssl
 repo --name="BaseOS" --baseurl="$uri_header/BaseOS" --noverifyssl
@@ -97,13 +97,13 @@ repo --name="Updates" --baseurl="$uri_header/Updates" --noverifyssl
 repo --name="$local_name" --baseurl="$local_header" --noverifyssl
 EOF
     ;;
-    '7' )
+    7 | 7.* )
       cat << EOF > /tmp/repo-include
 repo --name="Server" --baseurl="$uri_header"
 repo --name="$local_name" --baseurl="$local_header"
 EOF
     ;;
-    '6' )
+    6 | 6.* )
       cat << EOF > /tmp/repo-include
 repo --name="Server" --baseurl="$uri_header" --noverifyssl
 repo --name="$local_name" --baseurl="$local_header" --noverifyssl
