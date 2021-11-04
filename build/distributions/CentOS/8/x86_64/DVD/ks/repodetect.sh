@@ -60,7 +60,7 @@ fi
 if [ "$distro" == RedHat ]; then
 
   case $version in
-    '8' )
+    8 | 8.* )
       cat << EOF > /tmp/repo-include
 repo --name="baseos"   --baseurl="$uri_header/BaseOS" --noverifyssl
 repo --name="appstream"   --baseurl="$uri_header/AppStream" --noverifyssl
@@ -72,7 +72,7 @@ repo --name="puppet"   --baseurl="$local_header/puppet" --noverifyssl
 repo --name="simp"   --baseurl="$local_header/SIMP" --noverifyssl
 EOF
     ;;
-    '7' )
+    7 | 7.* )
       cat << EOF > /tmp/repo-include
 repo --name="HighAvailability" --baseurl="$uri_header/addons/HighAvailability"
 repo --name="ResilientStorage" --baseurl="$uri_header/addons/ResilientStorage"
@@ -85,7 +85,7 @@ EOF
 elif [ "$distro" == CentOS ]; then
 
   case $version in
-    '8' )
+    8 | 8.* )
       cat << EOF > /tmp/repo-include
 repo --name="baseos"   --baseurl="$uri_header/BaseOS" --noverifyssl
 repo --name="appstream"   --baseurl="$uri_header/AppStream" --noverifyssl
@@ -97,7 +97,7 @@ repo --name="puppet"   --baseurl="$local_header/puppet" --noverifyssl
 repo --name="simp"   --baseurl="$local_header/SIMP" --noverifyssl
 EOF
     ;;
-    '7' )
+    7 | 7.*)
       cat << EOF > /tmp/repo-include
 repo --name="Server" --baseurl="$uri_header"
 repo --name="simp" --baseurl="$local_header"
